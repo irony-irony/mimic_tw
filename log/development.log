@@ -1,0 +1,2455 @@
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 16:20:49 +0900
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 519ms (Views: 495.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-2e9d1cb72084fa4225b20f531bad849f.css?body=1" for ::1 at 2016-11-28 16:20:50 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 16:20:50 +0900
+
+
+Started GET "/assets/tweets-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 16:20:50 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 16:20:50 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 16:20:50 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 16:20:50 +0900
+  [1m[36m (33.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (30.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateTweets (20161128072146)
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/isemuratomoya/projects/pictweet3/db/migrate/20161128072146_create_tweets.rb:7)
+  [1m[35m (43.0ms)[0m  CREATE TABLE `tweets` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `text` text, `image` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (25.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161128072146')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (18.5ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'tweets'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `tweets`
+  [1m[36mTweet Load (26.4ms)[0m  [1mSELECT  `tweets`.* FROM `tweets` WHERE `tweets`.`id` = 1 LIMIT 1[0m
+  [1m[35mTweet Load (0.5ms)[0m  SELECT `tweets`.* FROM `tweets`
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 16:43:41 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (36.1ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1:  <div class="contents row" >
+    2:     <% @tweets.each do |tweet| %>
+    3:       <div class="content_post" style="background-image: url(<%= tweet.image %>);">
+    4:         <%= simple_format(tweet.text) %>
+    5:         <span class="name"><%= tweet.name %></span>
+  app/views/tweets/index.html.erb:2:in `_app_views_tweets_index_html_erb___1772124150065836521_70117326669140'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (143.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (131.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (277.1ms)
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 16:44:08 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.6ms)[0m  SELECT `tweets`.* FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (54.5ms)
+Completed 200 OK in 2503ms (Views: 2473.7ms | ActiveRecord: 25.2ms)
+
+
+Started GET "/assets/style-98da129fec63ab210305f2107c14fec6.css?body=1" for ::1 at 2016-11-28 16:44:11 +0900
+
+
+Started GET "/assets/application-ff0c374be1ec0f2d3e23efac94848b3c.css?body=1" for ::1 at 2016-11-28 16:44:11 +0900
+
+
+Started GET "/assets/tweets-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 16:44:11 +0900
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 16:44:11 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 16:44:11 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 16:44:11 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 16:44:11 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 16:44:11 +0900
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 16:44:11 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.7ms)[0m  [1mSELECT `tweets`.* FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 97ms (Views: 94.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tweets/new" for ::1 at 2016-11-28 16:44:27 +0900
+Processing by TweetsController#new as HTML
+  Rendered tweets/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 75ms (Views: 74.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 16:44:27 +0900
+
+
+Started GET "/assets/tweets-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 16:44:27 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 16:44:27 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 16:44:27 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 16:44:27 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 16:44:27 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DeviseCreateUsers (20161128080653)
+  [1m[35m (39.1ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (21.5ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (18.9ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) 
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (11.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161128080653')
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (9.7ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'tweets'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `tweets`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/tweets/" for ::1 at 2016-11-28 17:35:06 +0900
+
+NoMethodError (undefined method `devise' for User (call 'User.connection' to establish a connection):Class):
+  app/models/user.rb:4:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  config/routes.rb:2:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (130.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (131.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (285.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-11-28 17:36:16 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_in"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (19.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (48.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (199.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (96.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (218.8ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2016-11-28 17:37:37 +0900
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_up"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (109.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (106.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (240.9ms)
+
+
+Started GET "/" for ::1 at 2016-11-28 17:38:17 +0900
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (113.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (98.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (227.1ms)
+
+
+Started GET "/" for ::1 at 2016-11-28 17:39:01 +0900
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (108.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (109.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (235.2ms)
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 17:39:09 +0900
+
+ActionController::RoutingError (No route matches [GET] "/tweets"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (103.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (101.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (225.9ms)
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 17:39:34 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (1.0ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36m (23.7ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (165.1ms)
+Completed 200 OK in 413ms (Views: 339.3ms | ActiveRecord: 45.0ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 17:39:34 +0900
+
+
+Started GET "/assets/tweets-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 17:39:35 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 17:39:35 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 17:39:35 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 17:39:35 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 17:39:35 +0900
+
+
+Started GET "/" for ::1 at 2016-11-28 17:39:50 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (2.8ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (52.8ms)
+Completed 200 OK in 155ms (Views: 148.9ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-11-28 17:41:19 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (44.8ms)
+Completed 200 OK in 203ms (Views: 160.7ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/" for ::1 at 2016-11-28 17:41:27 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.8ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (55.8ms)
+Completed 200 OK in 155ms (Views: 150.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2016-11-28 17:41:28 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 94ms (Views: 92.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-11-28 17:41:29 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 113ms (Views: 110.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-11-28 17:41:30 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.4ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 132ms (Views: 129.6ms | ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddNicknameToUsers (20161128084752)
+  [1m[35m (43.3ms)[0m  ALTER TABLE `users` ADD `nickname` varchar(255)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161128084752')
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.5ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'tweets'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `tweets`
+  [1m[36m (0.5ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddUserIdToTweets (20161128085810)
+  [1m[35m (50.5ms)[0m  ALTER TABLE `tweets` ADD `user_id` int(11)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161128085810')
+  [1m[36m (12.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'tweets'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `tweets`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/users/sign_up" for ::1 at 2016-11-28 17:59:05 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (58.7ms)
+Completed 200 OK in 329ms (Views: 264.8ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 17:59:06 +0900
+
+
+Started GET "/assets/tweets-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 17:59:06 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 17:59:06 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 17:59:06 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 17:59:06 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 17:59:06 +0900
+
+
+Started POST "/users" for ::1 at 2016-11-28 17:59:38 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SiruWiFEaQ+rXcCtgZnBBCEG9gQGKnOc2bFdL4quK9XGufmlGO4tQKGVztIMwcLTrPZkRQVfL2hSjqCCK4LR9A==", "user"=>{"nickname"=>"steve", "email"=>"steve@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (16.9ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'steve@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `nickname`, `created_at`, `updated_at`) VALUES ('steve@gmail.com', '$2a$11$3x/Y1C47s.6ffu3NKHZ0mOZy2k0KBn6VlzNuVVU82Nf6GTkAIHma2', 'steve', '2016-11-28 08:59:38', '2016-11-28 08:59:38')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (8.8ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-11-28 08:59:38', `current_sign_in_at` = '2016-11-28 08:59:38', `last_sign_in_ip` = '::1', `current_sign_in_ip` = '::1', `sign_in_count` = 1, `updated_at` = '2016-11-28 08:59:38' WHERE `users`.`id` = 1[0m
+  [1m[35m (6.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 401ms (ActiveRecord: 35.8ms)
+
+
+Started GET "/" for ::1 at 2016-11-28 17:59:38 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (99.2ms)
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 201ms (Views: 174.7ms | ActiveRecord: 22.4ms)
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 17:59:39 +0900
+
+
+Started GET "/assets/tweets-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 17:59:39 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 17:59:39 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 17:59:39 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 17:59:39 +0900
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 17:59:39 +0900
+
+
+Started GET "/tweets/new" for ::1 at 2016-11-28 17:59:44 +0900
+Processing by TweetsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered tweets/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 81ms (Views: 78.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/tweets" for ::1 at 2016-11-28 18:00:07 +0900
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xhtcYDdc44sIWqDVNVv4mO6G3X9sZSQbAPfbt9ltplVKiEufDvanxAKSrqq4A/tPY3ZPPm8QeO+LyCYaeEFcdA==", "name"=>"steve", "image"=>"image.png", "text"=>"good"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Unpermitted parameters: utf8, authenticity_token
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `tweets` (`name`, `image`, `text`, `created_at`, `updated_at`) VALUES ('steve', 'image.png', 'good', '2016-11-28 09:00:07', '2016-11-28 09:00:07')[0m
+  [1m[35m (12.3ms)[0m  COMMIT
+  Rendered tweets/create.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 91ms (Views: 72.7ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 18:00:07 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 18:00:07 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 18:00:07 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 18:00:07 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 18:00:07 +0900
+
+
+Started GET "/assets/tweets-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 18:00:07 +0900
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 18:00:09 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (39.2ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 125ms (Views: 122.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/image.png" for ::1 at 2016-11-28 18:00:09 +0900
+
+ActionController::RoutingError (No route matches [GET] "/image.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (160.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (108.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (246.9ms)
+
+
+Started GET "/?page=2" for ::1 at 2016-11-28 18:00:14 +0900
+Processing by TweetsController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[35mTweet Load (0.5ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 5
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (41.9ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 132ms (Views: 129.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-11-28 18:00:19 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (40.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 130ms (Views: 127.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/image.png" for ::1 at 2016-11-28 18:00:19 +0900
+
+ActionController::RoutingError (No route matches [GET] "/image.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (163.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (101.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (229.8ms)
+
+
+Started GET "/" for ::1 at 2016-11-28 18:01:31 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.4ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 1 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (102.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 232ms (Views: 189.0ms | ActiveRecord: 30.7ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 18:01:31 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 18:01:31 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 18:01:31 +0900
+
+
+Started GET "/assets/tweets-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 18:01:31 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 18:01:31 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 18:01:31 +0900
+
+
+Started GET "/image.png" for ::1 at 2016-11-28 18:01:31 +0900
+
+ActionController::RoutingError (No route matches [GET] "/image.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (179.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (93.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (217.6ms)
+
+
+Started GET "/?page=2" for ::1 at 2016-11-28 18:01:34 +0900
+Processing by TweetsController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mTweet Load (1.6ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (94.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 168ms (Views: 164.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/?page=2" for ::1 at 2016-11-28 18:03:53 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by TweetsController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[35mTweet Load (0.5ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 5
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (102.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 339ms (Views: 271.9ms | ActiveRecord: 39.8ms)
+
+
+Started GET "/assets/application-bebc1aa2207b6bfa524ba3ea40204237.css?body=1" for ::1 at 2016-11-28 18:03:53 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 18:03:54 +0900
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 18:03:54 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 18:03:54 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 18:03:54 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 18:03:54 +0900
+
+
+Started GET "/?page=2" for ::1 at 2016-11-28 18:08:01 +0900
+Processing by TweetsController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mTweet Load (1.0ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 5[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (73.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 259ms (Views: 238.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 18:08:01 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 18:08:01 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 18:08:01 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 18:08:01 +0900
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 18:08:01 +0900
+
+
+Started GET "/" for ::1 at 2016-11-28 18:08:06 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (2.1ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (52.7ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 179ms (Views: 174.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/image.png" for ::1 at 2016-11-28 18:08:06 +0900
+
+ActionController::RoutingError (No route matches [GET] "/image.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (15.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (183.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (116.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (258.5ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 18:27:07 +0900
+
+
+Started GET "/" for ::1 at 2016-11-28 18:31:03 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (1.6ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (67.2ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 2249ms (Views: 2230.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/style-485c53455bf5c303fa279e7d68df4c58.css?body=1" for ::1 at 2016-11-28 18:31:06 +0900
+
+
+Started GET "/assets/application-980f8b39affdcb06d9a59c83cf8eec0c.css?body=1" for ::1 at 2016-11-28 18:31:06 +0900
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 18:31:06 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 18:31:06 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 18:31:06 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 18:31:06 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 18:31:06 +0900
+
+
+Started GET "/assets/font_1_honokamin.ttf" for ::1 at 2016-11-28 18:31:06 +0900
+
+
+Started GET "/image.png" for ::1 at 2016-11-28 18:31:06 +0900
+
+ActionController::RoutingError (No route matches [GET] "/image.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (262.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (154.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (306.0ms)
+
+
+Started GET "/tweets/new" for ::1 at 2016-11-28 18:41:46 +0900
+Processing by TweetsController#new as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered tweets/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 183ms (Views: 154.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/tweets" for ::1 at 2016-11-28 18:42:20 +0900
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ec9E1mFGrqCsPjOU+3y8iz7I5Qh29P2XRKXAsWq1jW6dXFMpWOzq76b2Pet2JL9cszh3SXWBoWPPmj0cy5l3Tw==", "name"=>"steve", "image"=>"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAAAnFBMVEX///+yIjQ8O26xHC+zKTmwFCvQjpTJeoGvECivCya7SlXXoaXCZGw6OW02NWtxcJAwL2csK2UuPXIdG1+5IC4vLmcmJGJAP3HGxtIiIWFNTHnMzNf5+fvy8vVjYoiLi6Xj4+l7epi5uchRUHywsMHf3+aoqLyWla0VE1xbWoLW1t+fn7SCgp5XVoBGRXR1dJUNClpoaIwFAFi2Bh634CNMAAAJgUlEQVR4nO1d7ZKjOBKs5fZub25PAjWLzKfB2AYb23i88/7vdgKELcm9Ee7auHCIUUZM91Cj/FEZEiSlEgPe+/Dxxy+2ApxsGDjZUHjIRugnmRHySZB+EsSwFyFbtAueU9xsnuUIdtGzGBj2EmSjPvCnHFkcs6cgB/9JDRTbetkI499rWIdcnTKU8+9F8Z1zVaSAh2uov3OmrD8s23bZSN9V+xyKqmgeSdJrVVUA4sdVCTZiEOT7quvvuqHZtsvmkSCDAa260oJ1McSKozqJeDsOzAJ1tiHZ1svmeYdYpHPV7080zAHyUL+R8asYGB+0GJK9ANnCAgrY6XdwuoY8h7WeONuJgUWoy4Zj2y8bvcHmUOf6fInqqu+rWhoGuSp5Xh82sJ6upDFDsj9+fLMVs2znNCD8fJnykbd72nJCeDvNFzIFyeXMSZCeqdSC4Nle9Lu1mBfp6N2lgWexErzbf+nBxmsZpGVJ8WwvBHvhPYFEcH72s2eI9FclccWzjN/X39fYS5NtFfENxGFEVkqMRGEMGx4pMbKikcg7jOiKfJ29NNmCk4x3auKdDJ4eJoze8imW3+jX2UuTzWOTTW0T1c8mo00t1qrFoNFocrOIYthLk82LfBGtTWNWi6CvVz7In4Of/VO/Z73MXppsLAbh+Y2ZwYS3B6OeQa/ilROuhp99lb0Y2aSDjfJzmBayUjb72U2RhudcPg3l/GJZnSR1xnDspchGj9KRXgKRvT9dpOn02xc5B5fJz5KjFMUf/KxPcOyFyEZWe/6YInKeBCf59FODfC8tB73/wLCXIBulrAUq4D1AKA33+5BqWwfDGGiZNhDLtl62dOOvOzjd/OsjSbK+3m4At9t1rQSv/u0E3drfpA8xsGzrZaM7eaXsmZB0P8X26SNxupEDd8rMwrI/fvnVVshFOtnUTF9myej5Nesqltlgcg3rimTbX2/zkqE+e9bffggbElc3WwSCs4jFiRZDshcgWwRVC51R1i6hrqE0ytodtJXpZ3Fs+2WjbczZtpoznn6xrEyScvazc/7VlvG41f0sjm2/bGTLhjvP9Hik8609FcsukI/MOZgOdzC2ldZVmlwUewGyabXGpLgo70Hyr5dCvZ9JP9s0AZ69BNnuoAFL4ZQE+kZoIJ6LKQuoNjA4VNUhMIIvshcmG22bUwzVqWkefoukTXOqID41rbrtvjsJi3E67dRt91fZS5PtblPVZqHZpqrWlcwmVzW+L7OXJpuwqc2QovnSOcjRaNaV8PUgxpqj2EuTzYuGEnZn+tlhP6A1qrtkkM1o/XuZPcj249+24lk2XhXHGHpNDdJDfCwq3c8GJyhLc1/lZfYg8b+shSKbdLDbmNGkNf1sm9Ao3ip1NpF1fGHsEkc4treACsiogpw3q0EHOYWoP7c+DgG50RmcZqXo9AfHXoZs9JZ/0kZa15+0kao7o3+Hbb1shLHDDi4J09pI2dRGyrQ2UpZcYHdgehMqjm27bCTNuiyHKuvUNtJN14knoPihtZF2WQW5GK76WSTbdtnEs26yqVrrfCRt6kYLTiZ3rz4rsWzrZfNIOBYadUca0GHbnWoOg/Cx0BjqDgPHtl82LxSLBxrDz16GARfDzzZiYGV2K6DY9stGjtDyrDDaSHf58ZgbZ154kfHWUAPJtl82Wq4ZSU7Skd7LacO+5lxSm2wX2Z4Swtal7mdxbPtlmzpI5X0oqmX+gfcIkrl5ebiem1DPZ4pnL0E2FcxsI/LG9qJn6/rpoaqX2YuSjbDEh/qgWVdhUw81+Im+e8fYd4DvjOHYAh//sRZP1d0GCmEcCtAPVYkA5AWoftYvREAMLnz6dfYk2x//sBXPTaibsSd3x1U/y0ebmm+0JtS+GoL7nmLYk2zvrjai8Uk35dhGetAdxmFsI9Xz/rQJ9WX24mSrYQ8F1xNnuQga9Qx6g6IAoxryMnsxss29pfnpsM71A8rUh/XhlDN9YNxFURczHHspshG50365MeHD5NZT30+Jb4TXYjfZRjqXacVLKEnOFMdeimxe98mhqrm8rR2q6uZZdP+BYS9BNkKCEiKibUOJK951/CkYQBno+1VItvWy9Zd0lUHZp0clxe027QH6dLtVMj+mfQnZKr30jxiWbb1sXizfGZR+AzKdAxqaH5U20lYOjD0FSLb9siWjTd33+icpdk/W1QvGSm6+0TaQkeyPH/+0Ffcy5fiRAKPQmAx+1uhBiMaPBJhlShSb/mYtZtk4FDvIDD97hq4zD9WyDHY56H4Wyba/AkLLPU1uhczx3kbahGFjtJHS4pbQ/ezWyN9h2y8bWTPi0dV2yk2+MJGjyJkdpTTS+W9XVLwtrecTVgTPXoBsaseox6v0uY00nVtflKDehPpV9hJku4PSYAUt185KEUr5CVbBK4eqXmQvTDZalucaqnPZqtvubXmuoD6XyikD4osggBjok6+zlybb3aa2igkLpE1VratHpMmNCYa9MNk8mgw1xarXTFg0VnLrRJsuydiuoBvf19kLk80Tb+V/0UZavnKo6lX20mTje9h0oH9LhnjQbWBvNKG20DTacvwKezGyzR9x6mgUNmYbaRNGZN6OuvvZG+c33c++zl6KbMH0oCP9sOxkxyi53aZch95SwqbE6X250YcICPYiZCNH2fqirq9op7W+TP/Ei6O5UYxjf/zXWsi2wIiFDaTcaCNlQxspM9pIeQpNyNQPZGHZH9/evUuMhmxCjeu6gK6OtTZSERS+oY6Vk0C0iesOChFU/SySbX2Zkh4nm5ppO+zSprbaXvz00dPiqIzEsq2XzaPhaK306mPUD4VG3bp64WjM9A+cItn2yza0kT59YI2kw9QwzuWNn2irDD+LY9svm8hxRyujjTRowPehMfxsUdGdoQaSbb9stL1yEu62mhpBvQqCVa33em93IeFX/UQtkm2/bNPZqcDwY8M1MV4lx2uzdIZjL0C2d8DJ9tPJRt8Hm98S/Dfi3W+WePy/KwUODg4ODg4ODg4ODg4ODn+Jd/dc2wl4d4e/nYB3F/zshJMNBScbCk42FJxsKDjZUHCyoeBkQ8HJhgK8e6PWTsC7v01lJ95dSXBwcHBwcHBwcHBwcHD4ifHu/zHKTsC7/38yO+HKlCg42VBwsqHgZEPByYaCkw0FJxsKTjYUnGwoONlQgF8dEHh3JcHBwcHBwcHBwcHBwcHhJ8bvDgjANwcEXL0NBScbCk42FJxsKDjZUHCyoeBkQ8HJhoKTDQUnGwpONhT+B6AeSc7o3GYGAAAAAElFTkSuQmCC", "text"=>"アメリカ"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Unpermitted parameters: utf8, authenticity_token
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36mSQL (7.4ms)[0m  [1mINSERT INTO `tweets` (`name`, `image`, `text`, `created_at`, `updated_at`) VALUES ('steve', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAAAnFBMVEX///+yIjQ8O26xHC+zKTmwFCvQjpTJeoGvECivCya7SlXXoaXCZGw6OW02NWtxcJAwL2csK2UuPXIdG1+5IC4vLmcmJGJAP3HGxtIiIWFNTHnMzNf5+fvy8vVjYoiLi6Xj4+l7epi5uchRUHywsMHf3+aoqLyWla0VE1xbWoLW1t+fn7SCgp5XVoBGRXR1dJUNClpoaIwFAFi2Bh634CNMAAAJgUlEQVR4nO1d7ZKjOBKs5fZub25PAjWLzKfB2AYb23i88/7vdgKELcm9Ee7auHCIUUZM91Cj/FEZEiSlEgPe+/Dxxy+2ApxsGDjZUHjIRugnmRHySZB+EsSwFyFbtAueU9xsnuUIdtGzGBj2EmSjPvCnHFkcs6cgB/9JDRTbetkI499rWIdcnTKU8+9F8Z1zVaSAh2uov3OmrD8s23bZSN9V+xyKqmgeSdJrVVUA4sdVCTZiEOT7quvvuqHZtsvmkSCDAa260oJ1McSKozqJeDsOzAJ1tiHZ1svmeYdYpHPV7080zAHyUL+R8asYGB+0GJK9ANnCAgrY6XdwuoY8h7WeONuJgUWoy4Zj2y8bvcHmUOf6fInqqu+rWhoGuSp5Xh82sJ6upDFDsj9+fLMVs2znNCD8fJnykbd72nJCeDvNFzIFyeXMSZCeqdSC4Nle9Lu1mBfp6N2lgWexErzbf+nBxmsZpGVJ8WwvBHvhPYFEcH72s2eI9FclccWzjN/X39fYS5NtFfENxGFEVkqMRGEMGx4pMbKikcg7jOiKfJ29NNmCk4x3auKdDJ4eJoze8imW3+jX2UuTzWOTTW0T1c8mo00t1qrFoNFocrOIYthLk82LfBGtTWNWi6CvVz7In4Of/VO/Z73MXppsLAbh+Y2ZwYS3B6OeQa/ilROuhp99lb0Y2aSDjfJzmBayUjb72U2RhudcPg3l/GJZnSR1xnDspchGj9KRXgKRvT9dpOn02xc5B5fJz5KjFMUf/KxPcOyFyEZWe/6YInKeBCf59FODfC8tB73/wLCXIBulrAUq4D1AKA33+5BqWwfDGGiZNhDLtl62dOOvOzjd/OsjSbK+3m4At9t1rQSv/u0E3drfpA8xsGzrZaM7eaXsmZB0P8X26SNxupEDd8rMwrI/fvnVVshFOtnUTF9myej5Nesqltlgcg3rimTbX2/zkqE+e9bffggbElc3WwSCs4jFiRZDshcgWwRVC51R1i6hrqE0ytodtJXpZ3Fs+2WjbczZtpoznn6xrEyScvazc/7VlvG41f0sjm2/bGTLhjvP9Hik8609FcsukI/MOZgOdzC2ldZVmlwUewGyabXGpLgo70Hyr5dCvZ9JP9s0AZ69BNnuoAFL4ZQE+kZoIJ6LKQuoNjA4VNUhMIIvshcmG22bUwzVqWkefoukTXOqID41rbrtvjsJi3E67dRt91fZS5PtblPVZqHZpqrWlcwmVzW+L7OXJpuwqc2QovnSOcjRaNaV8PUgxpqj2EuTzYuGEnZn+tlhP6A1qrtkkM1o/XuZPcj249+24lk2XhXHGHpNDdJDfCwq3c8GJyhLc1/lZfYg8b+shSKbdLDbmNGkNf1sm9Ao3ip1NpF1fGHsEkc4treACsiogpw3q0EHOYWoP7c+DgG50RmcZqXo9AfHXoZs9JZ/0kZa15+0kao7o3+Hbb1shLHDDi4J09pI2dRGyrQ2UpZcYHdgehMqjm27bCTNuiyHKuvUNtJN14knoPihtZF2WQW5GK76WSTbdtnEs26yqVrrfCRt6kYLTiZ3rz4rsWzrZfNIOBYadUca0GHbnWoOg/Cx0BjqDgPHtl82LxSLBxrDz16GARfDzzZiYGV2K6DY9stGjtDyrDDaSHf58ZgbZ154kfHWUAPJtl82Wq4ZSU7Skd7LacO+5lxSm2wX2Z4Swtal7mdxbPtlmzpI5X0oqmX+gfcIkrl5ebiem1DPZ4pnL0E2FcxsI/LG9qJn6/rpoaqX2YuSjbDEh/qgWVdhUw81+Im+e8fYd4DvjOHYAh//sRZP1d0GCmEcCtAPVYkA5AWoftYvREAMLnz6dfYk2x//sBXPTaibsSd3x1U/y0ebmm+0JtS+GoL7nmLYk2zvrjai8Uk35dhGetAdxmFsI9Xz/rQJ9WX24mSrYQ8F1xNnuQga9Qx6g6IAoxryMnsxss29pfnpsM71A8rUh/XhlDN9YNxFURczHHspshG50365MeHD5NZT30+Jb4TXYjfZRjqXacVLKEnOFMdeimxe98mhqrm8rR2q6uZZdP+BYS9BNkKCEiKibUOJK951/CkYQBno+1VItvWy9Zd0lUHZp0clxe027QH6dLtVMj+mfQnZKr30jxiWbb1sXizfGZR+AzKdAxqaH5U20lYOjD0FSLb9siWjTd33+icpdk/W1QvGSm6+0TaQkeyPH/+0Ffcy5fiRAKPQmAx+1uhBiMaPBJhlShSb/mYtZtk4FDvIDD97hq4zD9WyDHY56H4Wyba/AkLLPU1uhczx3kbahGFjtJHS4pbQ/ezWyN9h2y8bWTPi0dV2yk2+MJGjyJkdpTTS+W9XVLwtrecTVgTPXoBsaseox6v0uY00nVtflKDehPpV9hJku4PSYAUt185KEUr5CVbBK4eqXmQvTDZalucaqnPZqtvubXmuoD6XyikD4osggBjok6+zlybb3aa2igkLpE1VratHpMmNCYa9MNk8mgw1xarXTFg0VnLrRJsuydiuoBvf19kLk80Tb+V/0UZavnKo6lX20mTje9h0oH9LhnjQbWBvNKG20DTacvwKezGyzR9x6mgUNmYbaRNGZN6OuvvZG+c33c++zl6KbMH0oCP9sOxkxyi53aZch95SwqbE6X250YcICPYiZCNH2fqirq9op7W+TP/Ei6O5UYxjf/zXWsi2wIiFDaTcaCNlQxspM9pIeQpNyNQPZGHZH9/evUuMhmxCjeu6gK6OtTZSERS+oY6Vk0C0iesOChFU/SySbX2Zkh4nm5ppO+zSprbaXvz00dPiqIzEsq2XzaPhaK306mPUD4VG3bp64WjM9A+cItn2yza0kT59YI2kw9QwzuWNn2irDD+LY9svm8hxRyujjTRowPehMfxsUdGdoQaSbb9stL1yEu62mhpBvQqCVa33em93IeFX/UQtkm2/bNPZqcDwY8M1MV4lx2uzdIZjL0C2d8DJ9tPJRt8Hm98S/Dfi3W+WePy/KwUODg4ODg4ODg4ODg4ODn+Jd/dc2wl4d4e/nYB3F/zshJMNBScbCk42FJxsKDjZUHCyoeBkQ8HJhgK8e6PWTsC7v01lJ95dSXBwcHBwcHBwcHBwcHD4ifHu/zHKTsC7/38yO+HKlCg42VBwsqHgZEPByYaCkw0FJxsKTjYUnGwoONlQgF8dEHh3JcHBwcHBwcHBwcHBwcHhJ8bvDgjANwcEXL0NBScbCk42FJxsKDjZUHCyoeBkQ8HJhoKTDQUnGwpONhT+B6AeSc7o3GYGAAAAAElFTkSuQmCC', 'アメリカ', '2016-11-28 09:42:20', '2016-11-28 09:42:20')[0m
+  [1m[35m (16.2ms)[0m  COMMIT
+  Rendered tweets/create.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 176ms (Views: 113.7ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 18:42:20 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 18:42:20 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 18:42:20 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 18:42:20 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 18:42:20 +0900
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 18:42:21 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.6ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (50.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 150ms (Views: 146.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/image.png" for ::1 at 2016-11-28 18:42:21 +0900
+
+ActionController::RoutingError (No route matches [GET] "/image.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (156.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (108.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (235.5ms)
+
+
+Started GET "/tweets/new" for ::1 at 2016-11-28 18:42:49 +0900
+Processing by TweetsController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered tweets/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 113ms (Views: 70.1ms | ActiveRecord: 21.0ms)
+
+
+Started POST "/tweets" for ::1 at 2016-11-28 18:43:18 +0900
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NGbWGF7QaeMRJr4uAqHB0uXfZO5abwxe77S2SpBXjDu49cHnZ3otrBvusFGP+cIFaC/2r1kaUKpki0vnMXt2Gg==", "name"=>"NYU", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBW--c5JrpwJKCH-wXRMSgDJyFQVNSmmmUt9ehm_VRNE1uNY2D", "text"=>"New York"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Unpermitted parameters: utf8, authenticity_token
+Unpermitted parameters: utf8, authenticity_token
+Unpermitted parameters: utf8, authenticity_token
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.4ms)
+
+NameError (undefined local variable or method `text' for #<TweetsController:0x007f9920488b70>
+Did you mean?  test):
+  app/controllers/tweets_controller.rb:12:in `create'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (140.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (110.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (240.1ms)
+
+
+Started POST "/tweets" for ::1 at 2016-11-28 18:44:25 +0900
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NGbWGF7QaeMRJr4uAqHB0uXfZO5abwxe77S2SpBXjDu49cHnZ3otrBvusFGP+cIFaC/2r1kaUKpki0vnMXt2Gg==", "name"=>"NYU", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBW--c5JrpwJKCH-wXRMSgDJyFQVNSmmmUt9ehm_VRNE1uNY2D", "text"=>"New York"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Unpermitted parameters: utf8, authenticity_token
+Unpermitted parameters: utf8, authenticity_token
+Unpermitted parameters: utf8, authenticity_token
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `tweets` (`name`, `image`, `text`, `user_id`, `created_at`, `updated_at`) VALUES ('NYU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBW--c5JrpwJKCH-wXRMSgDJyFQVNSmmmUt9ehm_VRNE1uNY2D', 'New York', 1, '2016-11-28 09:44:25', '2016-11-28 09:44:25')
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  Rendered tweets/create.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 191ms (Views: 94.1ms | ActiveRecord: 47.0ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 18:44:25 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 18:44:25 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 18:44:25 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 18:44:25 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 18:44:25 +0900
+
+
+Started GET "/" for ::1 at 2016-11-28 18:44:27 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.6ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (48.9ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 136ms (Views: 133.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/image.png" for ::1 at 2016-11-28 18:44:27 +0900
+
+ActionController::RoutingError (No route matches [GET] "/image.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (200.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (115.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (284.6ms)
+
+
+Started GET "/tweets/new" for ::1 at 2016-11-28 18:44:29 +0900
+Processing by TweetsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered tweets/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 88ms (Views: 83.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/tweets" for ::1 at 2016-11-28 18:45:15 +0900
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j3gleC73hGOiNR1vnts03Dn0AkbOpTmhrd6wS5so13sD6zKHF13ALKj9ExATgzcLtASQB83QZVUm4U3mOgQtWg==", "name"=>"steve", "image"=>"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Italy_looking_like_the_flag.svg/2000px-Italy_looking_like_the_flag.svg.png", "text"=>"イタリア"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Unpermitted parameters: utf8, authenticity_token
+Unpermitted parameters: utf8, authenticity_token
+Unpermitted parameters: utf8, authenticity_token
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `tweets` (`name`, `image`, `text`, `user_id`, `created_at`, `updated_at`) VALUES ('steve', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Italy_looking_like_the_flag.svg/2000px-Italy_looking_like_the_flag.svg.png', 'イタリア', 1, '2016-11-28 09:45:15', '2016-11-28 09:45:15')
+  [1m[36m (10.6ms)[0m  [1mCOMMIT[0m
+  Rendered tweets/create.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 114ms (Views: 90.1ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 18:45:16 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 18:45:16 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 18:45:16 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 18:45:16 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 18:45:16 +0900
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 18:45:17 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.8ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (50.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 154ms (Views: 150.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/image.png" for ::1 at 2016-11-28 18:45:18 +0900
+
+ActionController::RoutingError (No route matches [GET] "/image.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (157.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (98.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (220.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to RemoveNameFromTweets (20161128102837)
+  [1m[35m (64.0ms)[0m  ALTER TABLE `tweets` DROP `name`
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161128102837')
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.7ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'tweets'
+[0m
+  [1m[35m (0.4ms)[0m  SHOW CREATE TABLE `tweets`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 19:46:29 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by TweetsController#index as HTML
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 24.0ms)
+
+NoMethodError (undefined method `belong_to' for #<Class:0x007ffbd4728ff8>
+Did you mean?  belongs_to):
+  app/models/tweet.rb:2:in `<class:Tweet>'
+  app/models/tweet.rb:1:in `<top (required)>'
+  app/controllers/tweets_controller.rb:5:in `index'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (133.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (129.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (274.6ms)
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 19:47:00 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.5ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered tweets/index.html.erb within layouts/application (133.6ms)
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 51.9ms)
+
+ActionView::Template::Error (undefined method `nickname' for nil:NilClass):
+    14:         <%= simple_format(tweet.text) %>
+    15:         <span class="name">
+    16:           <a href="">
+    17:             <span>投稿者</span><%= tweet.user.nickname %>
+    18:           </a>
+    19:         </span>
+    20:       </div>
+  app/views/tweets/index.html.erb:17:in `block in _app_views_tweets_index_html_erb__1651762761593716940_70359820164420'
+  app/views/tweets/index.html.erb:2:in `_app_views_tweets_index_html_erb__1651762761593716940_70359820164420'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (131.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (107.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (234.1ms)
+
+
+Started GET "/tweets" for ::1 at 2016-11-28 19:48:58 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.5ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (81.8ms)
+Completed 200 OK in 592ms (Views: 588.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 19:48:59 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 19:48:59 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 19:48:59 +0900
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 19:48:59 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 19:48:59 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 19:48:59 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 19:48:59 +0900
+
+
+Started GET "/assets/application-8c9e117b2e9234dd12ae48cf86675806.js?body=1" for ::1 at 2016-11-28 19:48:59 +0900
+
+
+Started GET "/assets/arrow_top-84b7ce608717d88dad623d5bb5cc04cf.png" for ::1 at 2016-11-28 19:48:59 +0900
+
+
+Started GET "/image.png" for ::1 at 2016-11-28 19:48:59 +0900
+
+ActionController::RoutingError (No route matches [GET] "/image.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (15.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (290.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (110.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (267.2ms)
+
+
+Started DELETE "/tweets/7" for ::1 at 2016-11-28 19:49:17 +0900
+Processing by TweetsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/qPh6sLfa8cq5KpDusZpZ5LPVFmNmC9ydndJgqgvVDtyMPYV+3UviCAspDw3nmqwHz/GGI7tc4b9SLQvCQOuGg==", "id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mTweet Load (0.4ms)[0m  SELECT  `tweets`.* FROM `tweets` WHERE `tweets`.`id` = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (21.6ms)[0m  DELETE FROM `tweets` WHERE `tweets`.`id` = 7
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered tweets/destroy.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 119ms (Views: 86.4ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 19:49:17 +0900
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 19:49:17 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 19:49:17 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 19:49:17 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 19:49:17 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 19:49:17 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 19:49:17 +0900
+
+
+Started GET "/assets/application-8c9e117b2e9234dd12ae48cf86675806.js?body=1" for ::1 at 2016-11-28 19:49:17 +0900
+
+
+Started GET "/" for ::1 at 2016-11-28 19:49:18 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.4ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (51.4ms)
+Completed 200 OK in 137ms (Views: 133.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/arrow_top-84b7ce608717d88dad623d5bb5cc04cf.png" for ::1 at 2016-11-28 19:49:19 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateComments (20161128120226)
+  [1m[35m (51.7ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `tweet_id` int(11), `text` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161128120226')
+  [1m[36m (19.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'comments'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `comments`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'tweets'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `tweets`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'pictweet3_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/" for ::1 at 2016-11-28 21:25:36 +0900
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (3.5ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (121.1ms)
+Completed 200 OK in 287ms (Views: 240.6ms | ActiveRecord: 28.8ms)
+
+
+Started GET "/users/1" for ::1 at 2016-11-28 21:25:41 +0900
+
+ActionController::RoutingError (No route matches [GET] "/users/1"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (171.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (109.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (257.4ms)
+
+
+Started GET "/users/1" for ::1 at 2016-11-28 21:26:06 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (No route matches [GET] "/users/1"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (16.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (193.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (130.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (269.4ms)
+
+
+Started GET "/" for ::1 at 2016-11-28 21:26:20 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.4ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (175.8ms)
+Completed 200 OK in 368ms (Views: 293.6ms | ActiveRecord: 53.6ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 21:26:21 +0900
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 21:26:21 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:26:21 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 21:26:21 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 21:26:21 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 21:26:21 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:26:21 +0900
+
+
+Started GET "/assets/application-8c9e117b2e9234dd12ae48cf86675806.js?body=1" for ::1 at 2016-11-28 21:26:21 +0900
+
+
+Started GET "/assets/arrow_top-84b7ce608717d88dad623d5bb5cc04cf.png" for ::1 at 2016-11-28 21:26:21 +0900
+
+
+Started GET "/users/1" for ::1 at 2016-11-28 21:26:24 +0900
+
+ActionController::RoutingError (No route matches [GET] "/users/1"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (162.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (101.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (237.9ms)
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 21:26:26 +0900
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 21:26:26 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 21:26:26 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 21:26:26 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 21:26:27 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:26:27 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:26:27 +0900
+
+
+Started GET "/assets/application-8c9e117b2e9234dd12ae48cf86675806.js?body=1" for ::1 at 2016-11-28 21:26:27 +0900
+
+
+Started GET "/" for ::1 at 2016-11-28 21:57:06 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.6ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered tweets/_tweet.html.erb (18.2ms)
+  Rendered tweets/_tweet.html.erb (1.3ms)
+  Rendered tweets/_tweet.html.erb (1.2ms)
+  Rendered tweets/_tweet.html.erb (1.0ms)
+  Rendered tweets/_tweet.html.erb (1.0ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (213.5ms)
+Completed 200 OK in 2429ms (Views: 2341.1ms | ActiveRecord: 52.7ms)
+
+
+Started GET "/assets/comment-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 21:57:08 +0900
+
+
+Started GET "/assets/comment-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:57:08 +0900
+
+
+Started GET "/assets/application-2c0e9095cd0b5e44ef6139d66b26b0bb.css?body=1" for ::1 at 2016-11-28 21:57:08 +0900
+
+
+Started GET "/assets/style-9fbc5f1d330568c6581538d7247ab09d.css?body=1" for ::1 at 2016-11-28 21:57:08 +0900
+
+
+Started GET "/assets/application-40c4872ec41fe16bc85b6eda9cd9ca5c.js?body=1" for ::1 at 2016-11-28 21:57:08 +0900
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 21:57:09 +0900
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 21:57:09 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 21:57:09 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 21:57:09 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 21:57:09 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:57:09 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:57:09 +0900
+
+
+Started GET "/assets/arrow_top-84b7ce608717d88dad623d5bb5cc04cf.png" for ::1 at 2016-11-28 21:57:09 +0900
+
+
+Started GET "/" for ::1 at 2016-11-28 21:57:11 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.4ms)[0m  SELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered tweets/_tweet.html.erb (3.7ms)
+  Rendered tweets/_tweet.html.erb (1.2ms)
+  Rendered tweets/_tweet.html.erb (2.1ms)
+  Rendered tweets/_tweet.html.erb (1.1ms)
+  Rendered tweets/_tweet.html.erb (1.9ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (66.5ms)
+Completed 200 OK in 194ms (Views: 190.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1" for ::1 at 2016-11-28 21:57:15 +0900
+
+ActionController::RoutingError (No route matches [GET] "/users/1"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (17.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (190.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (123.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (277.5ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 21:57:18 +0900
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 21:57:18 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 21:57:18 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 21:57:18 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:57:19 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 21:57:19 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:57:19 +0900
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-11-28 21:57:22 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"j6svMo4b6vqnTTudCP+45k2oHM7ri4Avoh1gA4clZa4DODjNt7Guta2FNeKFp7sxwFiOj+j+3NspIp2uJgmfjw=="}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2016-11-28 21:57:22 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)
+  Rendered tweets/_tweet.html.erb (8.1ms)
+  Rendered tweets/_tweet.html.erb (0.9ms)
+  Rendered tweets/_tweet.html.erb (1.9ms)
+  Rendered tweets/_tweet.html.erb (1.9ms)
+  Rendered tweets/_tweet.html.erb (1.5ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `tweets`[0m
+  Rendered tweets/index.html.erb within layouts/application (67.1ms)
+Completed 200 OK in 174ms (Views: 171.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 21:57:22 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 21:57:22 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:57:22 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 21:57:22 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:57:22 +0900
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 21:57:22 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 21:57:22 +0900
+
+
+Started GET "/assets/arrow_top-84b7ce608717d88dad623d5bb5cc04cf.png" for ::1 at 2016-11-28 21:57:22 +0900
+
+
+Started GET "/users/sign_up" for ::1 at 2016-11-28 21:57:23 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 132ms (Views: 129.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-11-28 21:57:47 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d3uT/2Bn6+AqPqI+KAb4FCJqqiAuMjXxBeg6saIrp5dWQydc4u+wH6gxLdb6tQXsGmENc8tuGz2CdzlphkIHlQ==", "user"=>{"nickname"=>"kobe", "email"=>"kobe@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (18.1ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'kobe@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `nickname`, `created_at`, `updated_at`) VALUES ('kobe@gmail.com', '$2a$11$ySFNlfApfFxlJivuXH6fCuRQPUQraAMNzIgy5j.tpV7RjBH2vFcSa', 'kobe', '2016-11-28 12:57:48', '2016-11-28 12:57:48')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-11-28 12:57:48', `current_sign_in_at` = '2016-11-28 12:57:48', `last_sign_in_ip` = '::1', `current_sign_in_ip` = '::1', `sign_in_count` = 1, `updated_at` = '2016-11-28 12:57:48' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 336ms (ActiveRecord: 23.3ms)
+
+
+Started GET "/" for ::1 at 2016-11-28 21:57:48 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.5ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered tweets/_tweet.html.erb (3.6ms)
+  Rendered tweets/_tweet.html.erb (1.2ms)
+  Rendered tweets/_tweet.html.erb (1.3ms)
+  Rendered tweets/_tweet.html.erb (1.1ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (57.8ms)
+Completed 200 OK in 197ms (Views: 193.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 21:57:48 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 21:57:48 +0900
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 21:57:48 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:57:48 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 21:57:48 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 21:57:48 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:57:48 +0900
+
+
+Started GET "/assets/arrow_top-84b7ce608717d88dad623d5bb5cc04cf.png" for ::1 at 2016-11-28 21:57:48 +0900
+
+
+Started GET "/" for ::1 at 2016-11-28 21:59:36 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered tweets/_tweet.html.erb (3.4ms)
+  Rendered tweets/_tweet.html.erb (0.9ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (1.1ms)
+  Rendered tweets/_tweet.html.erb (1.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 169ms (Views: 166.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 21:59:36 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 21:59:36 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 21:59:36 +0900
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 21:59:36 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:59:36 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 21:59:36 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 21:59:36 +0900
+
+
+Started GET "/assets/arrow_top-84b7ce608717d88dad623d5bb5cc04cf.png" for ::1 at 2016-11-28 21:59:36 +0900
+
+
+Started GET "/users/2" for ::1 at 2016-11-28 21:59:39 +0900
+
+ActionController::RoutingError (No route matches [GET] "/users/2"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (152.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (108.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (242.8ms)
+
+
+Started GET "/users/2" for ::1 at 2016-11-28 22:01:18 +0900
+
+ActionController::RoutingError (No route matches [GET] "/users/2"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (149.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (108.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (236.1ms)
+
+
+Started GET "/users/2" for ::1 at 2016-11-28 22:01:40 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTweet Load (17.1ms)[0m  SELECT  `tweets`.* FROM `tweets` WHERE `tweets`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `tweets` WHERE `tweets`.`user_id` = 2[0m
+  Rendered users/show.html.erb within layouts/application (27.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 227ms (Views: 104.2ms | ActiveRecord: 69.3ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 22:01:40 +0900
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 22:01:40 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 22:01:40 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 22:01:40 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 22:01:40 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 22:01:40 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 22:01:40 +0900
+
+
+Started GET "/users/2" for ::1 at 2016-11-28 22:02:43 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTweet Load (0.4ms)[0m  SELECT  `tweets`.* FROM `tweets` WHERE `tweets`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `tweets` WHERE `tweets`.`user_id` = 2[0m
+  Rendered users/show.html.erb within layouts/application (9.2ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 203ms (Views: 124.9ms | ActiveRecord: 46.8ms)
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-28 22:02:43 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-28 22:02:43 +0900
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-28 22:02:43 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-28 22:02:43 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 22:02:43 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-28 22:02:43 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-28 22:02:43 +0900
+
+
+Started GET "/" for ::1 at 2016-11-28 22:02:45 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1mSELECT  `tweets`.* FROM `tweets`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (1)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered tweets/_tweet.html.erb (3.3ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (1.0ms)
+  Rendered tweets/_tweet.html.erb (1.1ms)
+  Rendered tweets/_tweet.html.erb (1.1ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tweets`
+  Rendered tweets/index.html.erb within layouts/application (62.1ms)
+Completed 200 OK in 169ms (Views: 165.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/arrow_top-84b7ce608717d88dad623d5bb5cc04cf.png" for ::1 at 2016-11-28 22:02:45 +0900
+
+
+Started GET "/" for ::1 at 2016-11-29 17:11:29 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (19.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+SyntaxError (/Users/isemuratomoya/projects/pictweet3/app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+:class TweetsController < ApplicationController
+                       ^):
+  app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+
+
+
+
+Started GET "/" for ::1 at 2016-11-29 17:11:37 +0900
+
+SyntaxError (/Users/isemuratomoya/projects/pictweet3/app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+:class TweetsController < ApplicationController
+                       ^):
+  app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+
+
+
+
+Started GET "/" for ::1 at 2016-11-29 17:12:15 +0900
+
+SyntaxError (/Users/isemuratomoya/projects/pictweet3/app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+:class TweetsController < ApplicationController
+                       ^):
+  app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+
+
+
+
+Started GET "/" for ::1 at 2016-11-29 17:12:18 +0900
+
+SyntaxError (/Users/isemuratomoya/projects/pictweet3/app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+:class TweetsController < ApplicationController
+                       ^):
+  app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+
+
+
+
+Started GET "/" for ::1 at 2016-11-29 17:17:07 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (19.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+SyntaxError (/Users/isemuratomoya/projects/pictweet3/app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+:class TweetsController < ApplicationController
+                       ^):
+  app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+
+
+
+
+Started GET "/tweets" for ::1 at 2016-11-29 17:43:34 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (24.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+SyntaxError (/Users/isemuratomoya/projects/pictweet3/app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+:class TweetsController < ApplicationController
+                       ^):
+  app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+
+
+
+
+Started GET "/" for ::1 at 2016-11-29 17:43:45 +0900
+
+SyntaxError (/Users/isemuratomoya/projects/pictweet3/app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+:class TweetsController < ApplicationController
+                       ^):
+  app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+
+
+
+
+Started GET "/users/1" for ::1 at 2016-11-29 17:43:51 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (46.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTweet Load (20.7ms)[0m  [1mSELECT  `tweets`.* FROM `tweets` WHERE `tweets`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered tweets/_tweet.html.erb (28.2ms)
+  Rendered tweets/_tweet.html.erb (1.0ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  Rendered tweets/_tweet.html.erb (0.9ms)
+  Rendered tweets/_tweet.html.erb (0.8ms)
+  [1m[36m (19.3ms)[0m  [1mSELECT COUNT(*) FROM `tweets` WHERE `tweets`.`user_id` = 1[0m
+  Rendered users/show.html.erb within layouts/application (168.8ms)
+Completed 200 OK in 589ms (Views: 362.0ms | ActiveRecord: 144.7ms)
+
+
+Started GET "/assets/comment-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/users-539b1b2d248fcacaf845c897cae976a6.css?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/jquery-24e9e31ece1989ef3791bcd53ea38cab.js?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/setting-5e8da40f8600aa282b049f4132262140.css?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/style-9fbc5f1d330568c6581538d7247ab09d.css?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/application-2c0e9095cd0b5e44ef6139d66b26b0bb.css?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/jquery_ujs-e9c99e4aa7db66a7f23b948d7d043bd8.js?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/turbolinks-95919f04de70dd97e4a820144b05e4c0.js?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/comment-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/tweets-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/users-f6c6ef02137813db1b2df8e2c31983a1.js?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/application-40c4872ec41fe16bc85b6eda9cd9ca5c.js?body=1" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/arrow_top-84b7ce608717d88dad623d5bb5cc04cf.png" for ::1 at 2016-11-29 17:43:52 +0900
+
+
+Started GET "/assets/font_1_honokamin.ttf" for ::1 at 2016-11-29 17:43:53 +0900
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-11-29 17:44:02 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jewygTXrSbutNhw1bKBhWDE9uKhR6GqcA5cfGDFEVmSs1IYit2MSRC85k92+E5ygCTYf+7S0RFCECBzAFS32Zg=="}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (16.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 37ms (ActiveRecord: 20.1ms)
+
+
+Started GET "/" for ::1 at 2016-11-29 17:44:02 +0900
+
+SyntaxError (/Users/isemuratomoya/projects/pictweet3/app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+:class TweetsController < ApplicationController
+                       ^):
+  app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+
+
+
+
+Started GET "/" for ::1 at 2016-11-29 17:46:04 +0900
+
+SyntaxError (/Users/isemuratomoya/projects/pictweet3/app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+:class TweetsController < ApplicationController
+                       ^):
+  app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+
+
+
+
+Started GET "/" for ::1 at 2016-11-29 17:47:05 +0900
+
+NameError (undefined local variable or method `uRails' for main:Object):
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (139.1ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (124.2ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/isemuratomoya/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (273.9ms)
+
+
+Started GET "/" for ::1 at 2016-11-29 17:48:23 +0900
+
+SyntaxError (/Users/isemuratomoya/projects/pictweet3/app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+:class TweetsController < ApplicationController
+                       ^):
+  app/controllers/tweets_controller.rb:1: syntax error, unexpected tCONSTANT, expecting end-of-input
+
+
+  [1m[36mUser Exists (40.0ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'kkk@gmail.com' LIMIT 1[0m
